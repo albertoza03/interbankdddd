@@ -63,10 +63,10 @@ class ValidateISO(object):
         try:
             date = str(datetime.datetime.strptime(f"{date[0:2]}-{date[2:4]}-{date[4:8]}", '%d-%m-%Y'))
         except ValueError:
-            return '061'
+            return '060'
 
         if datetime.datetime.strptime(date, '%Y-%m-%d %H:%M:%S') > datetime.datetime.now():
-            return '061'
+            return '060'
 
         return code
 
@@ -76,6 +76,6 @@ class ValidateISO(object):
         try:
             datetime.datetime.strptime(f"{time[0:2]}:{time[2:4]}:{time[4:6]}", '%H:%M:%S')
         except ValueError:
-            return '060'
+            return '061'
 
         return code
