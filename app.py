@@ -26,7 +26,7 @@ def generate_trx():
     generate = GenerateTrx()
     trx = generate.generate()
     return make_response(
-     jsonify({"data": trx}), 200
+     jsonify(trx), 201
     )
 
 
