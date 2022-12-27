@@ -1,3 +1,19 @@
 {
-  "consultRespISO": "0210F03804818E808000000000000000008000000000000000000003100000000000000001369560906000502202002060200140282000100000000013695600030100PIB0    84002860200512007738650      ERRORCODETRANSACCION PROCESADA OK      GINOCCHIO MENDOZA PATRICIA MONLA POSITIVA              03012SEGURO VEHICULAR    FD221919437     FACTURA DICIEMBRE   2512201925122019000000016089000000001000000000000600000000017689000000017689122019012                              "
+    "consultRespISO": "0210F03804818E808000000000000000008000000000000000000003100000000000000001369560906000502202002060200140282000100000000013695600030100PIB0    84002860200512007738650      ERRORCODETRANSACCION PROCESADA OK      GINOCCHIO MENDOZA PATRICIA MONLA POSITIVA              03012SEGURO VEHICULAR    FD221919437     FACTURA DICIEMBRE   2512201925122019000000016089000000001000000000000600000000017689000000017689122019012                              ",
+    "trx": {
+        "bankId": "1003",
+        "callbackUrl": "https://t72ajthpqukj.runscope.net",
+        "currency": "PEN",
+        "expirationTime": 1672755110828,
+        "merchantName": "Anthony Parker",
+        "referenceProcessor": "120254711",
+        "requestAmount": 110,
+        "token": "127c6fa6bb1043deb590652084300c3d",
+        "transactionReference": "8f0fc57a-2258-4a49-aab4-67a3a420bfa5",
+        "sandboxBankUrl": "https://qa-sandbox.reventador.kushki.dev/checkout/transfer?status=initializedTransaction&identificationType=DNI&identificationNumber=1716458334&description=Description of the payment.&referenceNumber=818835545&bankName=&bankCode=1002&amount=110&cus=1716458334&ticketNumber=2150325978283984&processor=Kushki Transfer Processor",
+        "bankList": [
+            "1003"
+        ],
+        "sandboxEnable": true
+    }
 }

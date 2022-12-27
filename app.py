@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, make_response
 
+from Services.generate_trx import GenerateTrx
 from Services.reference_details import ISO
 
 app = Flask(__name__)
@@ -17,6 +18,15 @@ def reference_details():
     parse.consult(req)
     return make_response(
      jsonify({"data": parse.params}), 200
+    )
+
+
+@app.route('/transfer-core-banks/v1/transaction/', methods=['GET'])
+def generate_trx():
+    generate = GenerateTrx()
+    trx = generate.generate()
+    return make_response(
+     jsonify({"data": trx}), 200
     )
 
 
