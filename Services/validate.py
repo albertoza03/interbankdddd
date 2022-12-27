@@ -35,6 +35,20 @@ class ValidateISO(object):
 
         return code
 
+    @staticmethod
+    def get_description_response(code: str) -> str:
+        match code:
+            case "000":
+                return "TRANSACCION PROCESADA OK      "
+            case "002":
+                return "TIPO MSG. INVÁLIDO            "
+            case "060":
+                return "FECHA TXN. INVÁLIDO           "
+            case "061":
+                return "HORA TXN. INVÁLIDO            "
+            case _:
+                return "TRANSACCION PROCESADA OK      "
+
     def __validate_other(self, msg: str, primary: str, second: str, currency: str) -> str:
         code = self.__codErrorOri
 

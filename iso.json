@@ -4,9 +4,9 @@
         "bankId": "1003",
         "callbackUrl": "https://t72ajthpqukj.runscope.net",
         "currency": "PEN",
-        "expirationTime": 1672755110828,
-        "merchantName": "Katherine Hopkins",
-        "referenceProcessor": "170791559",
+        "expirationTime": 1672788650,
+        "merchantName": "Catherine Moses",
+        "referenceProcessor": "259416723",
         "requestAmount": 110,
         "token": "127c6fa6bb1043deb590652084300c3d",
         "transactionReference": "8f0fc57a-2258-4a49-aab4-67a3a420bfa5",
@@ -15,5 +15,16 @@
             "1003"
         ],
         "sandboxEnable": true
+    },
+    "response": {
+        "code": "0200512",
+        "clientName": "KUSHKI PAGOS                  ",
+        "documentDescription": "Pago por Kushki     ",
+        "filler": "                              ",
+        "filler01": " ",
+        "documentNumber": "01",
+        "period": "00",
+        "share": "00",
+        "currency": "1"
     }
 }
