@@ -46,6 +46,8 @@ class ValidateISO(object):
                 return "FECHA TXN. INVÁLIDO           "
             case "061":
                 return "HORA TXN. INVÁLIDO            "
+            case "019":
+                return "CUOTA PAGADA NO EXISTE        "
             case _:
                 return "TRANSACCION PROCESADA OK      "
 

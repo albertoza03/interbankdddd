@@ -20,6 +20,7 @@ class ISO(object):
 
         iso_file = open("./iso.json", "r")
         self.__baseFile = json.loads(iso_file.read())
+        self.__baseTrx: dict = self.__baseFile['trx']
         self.__consultRespISO = self.__baseFile['consultRespISO']
         iso_file.close()
 
@@ -37,6 +38,9 @@ class ISO(object):
 
         if pro != '310000':
             self.__codErrorOri = '002'
+
+        if str(self.__baseTrx.get('referenceProcessor')) != iso[207:221].strip():
+            self.__codErrorOri = '019'
 
         first_part = self.__generate_new_base_iso(base_iso)
         second_iso = self.__generate_second_part_iso(iso)
