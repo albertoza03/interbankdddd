@@ -47,13 +47,15 @@ class ISO(object):
         first_part = self.__generate_new_base_iso(base_iso)
         second_iso = self.__generate_second_part_iso(iso)
         second_length = self.__get_second_part_length(str(len(second_iso)))
+        print(second_length)
 
         return first_part + second_length + second_iso
 
     def __generate_second_part_iso(self, old_iso: str) -> str:
         data = self.__baseFile['response']
         consult_type = old_iso[206:207]
-        consult_num = old_iso[207:221]
+        consult_num = old_iso[208:222]
+        print(len(consult_num), old_iso[208:222])
         description = self.__valid.get_description_response(self.__codErrorOri)
         client_name = data['clientName']
         merchant_name = self.__get_merchant_name(self.__baseFile['trx']['merchantName'])
