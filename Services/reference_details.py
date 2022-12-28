@@ -39,7 +39,9 @@ class ISO(object):
         if pro != '310000':
             self.__codErrorOri = '002'
 
-        if str(self.__baseTrx.get('referenceProcessor')) != iso[207:221].strip():
+        reference_number = str(self.__baseTrx.get('referenceProcessor'))
+        iso_reference_number = iso[208:221].strip()
+        if reference_number != iso_reference_number:
             self.__codErrorOri = '019'
 
         first_part = self.__generate_new_base_iso(base_iso)
