@@ -56,14 +56,15 @@ class ISO(object):
         consult_num = old_iso[207:221]
         description = self.__valid.get_description_response(self.__codErrorOri)
         client_name = data['clientName']
-        merchant_name = self.__get_merchant_name(self.__baseTrx['merchantName'])
+        merchant_name = self.__get_merchant_name(self.__baseTrx.get('merchantName', ''))
         product_code = old_iso[203:206]
-        product_description = self.__get_merchant_name(self.__baseTrx['merchantName'], 20)
+        product_description = self.__get_merchant_name(self.__baseTrx.get('merchantName', ''), 20)
         document_number = self.__get_amount(random.randint(000000000000000, 999999999999999), 15)
         document_description = data['documentDescription']
-        expiration_date = datetime.datetime.fromtimestamp(self.__baseTrx['expirationTime']).strftime("%d%m%Y")
+        expiration_date = datetime.datetime.fromtimestamp(self.__baseTrx.get('expirationTime', 0000000000)).\
+            strftime("%d%m%Y")
         created = datetime.datetime.now().strftime("%d%m%Y")
-        request_amount = self.__get_amount(self.__baseTrx['requestAmount'])
+        request_amount = self.__get_amount(self.__baseTrx.get('requestAmount', ''))
         amount_zero = "000000000000"
         minimum_payment = self.__get_amount(int(request_amount) + int(amount_zero) + int(amount_zero))
 
@@ -113,6 +114,8 @@ class ISO(object):
         return base + str(second)
 
     def __get_reference_and_status(self, reference: str) -> str:
+        if len(reference) == 10:
+            reference = reference[1:10]
         for x in self.__baseTrx:
             if str(reference) == x.get('referenceProcessor'):
                 match x.get('transactionStatus'):
@@ -128,5 +131,5 @@ class ISO(object):
                     case _:
                         self.__baseTrx = x
                         return '000'
-
+        self.__baseTrx = {}
         return '019'
