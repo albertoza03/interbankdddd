@@ -1,21 +1,75 @@
 {
     "consultRespISO": "0210F03804818E808000000000000000008000000000000000000003100000000000000001369560906000502202002060200140282000100000000013695600030100PIB0    84002860200512007738650      ERRORCODETRANSACCION PROCESADA OK      GINOCCHIO MENDOZA PATRICIA MONLA POSITIVA              03012SEGURO VEHICULAR    FD221919437     FACTURA DICIEMBRE   2512201925122019000000016089000000001000000000000600000000017689000000017689122019012                              ",
-    "trx": {
-        "bankId": "1003",
-        "callbackUrl": "https://t72ajthpqukj.runscope.net",
-        "currency": "PEN",
-        "expirationTime": 1672788650,
-        "merchantName": "Catherine Moses",
-        "referenceProcessor": "259416723",
-        "requestAmount": 110,
-        "token": "127c6fa6bb1043deb590652084300c3d",
-        "transactionReference": "8f0fc57a-2258-4a49-aab4-67a3a420bfa5",
-        "sandboxBankUrl": "https://qa-sandbox.reventador.kushki.dev/checkout/transfer?status=initializedTransaction&identificationType=DNI&identificationNumber=1716458334&description=Description of the payment.&referenceNumber=818835545&bankName=&bankCode=1002&amount=110&cus=1716458334&ticketNumber=2150325978283984&processor=Kushki Transfer Processor",
-        "bankList": [
-            "1003"
-        ],
-        "sandboxEnable": true
-    },
+    "trx": [
+        {
+            "bankId": "1003",
+            "callbackUrl": "https://t72ajthpqukj.runscope.net",
+            "currency": "PEN",
+            "expirationTime": 1672963484,
+            "merchantName": "Deborah Arnold",
+            "referenceProcessor": "183718449",
+            "requestAmount": 110,
+            "token": "127c6fa6bb1043deb590652084300c3d",
+            "transactionReference": "8f0fc57a-2258-4a49-aab4-67a3a420bfa5",
+            "sandboxBankUrl": "https://qa-sandbox.reventador.kushki.dev/checkout/transfer?status=initializedTransaction&identificationType=DNI&identificationNumber=1716458334&description=Description of the payment.&referenceNumber=818835545&bankName=&bankCode=1002&amount=110&cus=1716458334&ticketNumber=2150325978283984&processor=Kushki Transfer Processor",
+            "bankList": [
+                "1003"
+            ],
+            "sandboxEnable": true,
+            "transactionStatus": "initializedTransaction"
+        },
+        {
+            "bankId": "1003",
+            "callbackUrl": "https://t72ajthpqukj.runscope.net",
+            "currency": "PEN",
+            "expirationTime": 1672788650,
+            "merchantName": "Catherine Moses",
+            "referenceProcessor": "259416724",
+            "requestAmount": 110,
+            "token": "127c6fa6bb1043deb590652084300c3e",
+            "transactionReference": "8f0fc57a-2258-4a49-aab4-67a3a420bfa6",
+            "sandboxBankUrl": "https://qa-sandbox.reventador.kushki.dev/checkout/transfer?status=initializedTransaction&identificationType=DNI&identificationNumber=1716458334&description=Description of the payment.&referenceNumber=818835545&bankName=&bankCode=1002&amount=110&cus=1716458334&ticketNumber=2150325978283984&processor=Kushki Transfer Processor",
+            "bankList": [
+                "1003"
+            ],
+            "sandboxEnable": true,
+            "transactionStatus": "approvedTransaction"
+        },
+        {
+            "bankId": "1003",
+            "callbackUrl": "https://t72ajthpqukj.runscope.net",
+            "currency": "PEN",
+            "expirationTime": 1672788650,
+            "merchantName": "Catherine Moses",
+            "referenceProcessor": "259416725",
+            "requestAmount": 110,
+            "token": "127c6fa6bb1043deb590652084300c3f",
+            "transactionReference": "8f0fc57a-2258-4a49-aab4-67a3a420bfa6",
+            "sandboxBankUrl": "https://qa-sandbox.reventador.kushki.dev/checkout/transfer?status=initializedTransaction&identificationType=DNI&identificationNumber=1716458334&description=Description of the payment.&referenceNumber=818835545&bankName=&bankCode=1002&amount=110&cus=1716458334&ticketNumber=2150325978283984&processor=Kushki Transfer Processor",
+            "bankList": [
+                "1003"
+            ],
+            "sandboxEnable": true,
+            "transactionStatus": "declinedTransaction"
+        },
+        {
+            "bankId": "1003",
+            "callbackUrl": "https://t72ajthpqukj.runscope.net",
+            "currency": "PEN",
+            "expirationTime": 1672788650,
+            "merchantName": "Catherine Moses",
+            "referenceProcessor": "259416726",
+            "requestAmount": 110,
+            "token": "127c6fa6bb1043deb590652084300c3g",
+            "transactionReference": "8f0fc57a-2258-4a49-aab4-67a3a420bfa7",
+            "sandboxBankUrl": "https://qa-sandbox.reventador.kushki.dev/checkout/transfer?status=initializedTransaction&identificationType=DNI&identificationNumber=1716458334&description=Description of the payment.&referenceNumber=818835545&bankName=&bankCode=1002&amount=110&cus=1716458334&ticketNumber=2150325978283984&processor=Kushki Transfer Processor",
+            "bankList": [
+                "1003"
+            ],
+            "sandboxEnable": true,
+            "transactionStatus": "expiredTransaction"
+        }
+    ],
     "response": {
         "code": "0200512",
         "clientName": "KUSHKI PAGOS                  ",

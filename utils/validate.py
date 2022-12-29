@@ -48,13 +48,19 @@ class ValidateISO(object):
                 return "HORA TXN. INVÁLIDO            "
             case "019":
                 return "CUOTA PAGADA NO EXISTE        "
+            case "003":
+                return "CÓDIGO TXN. INVÁLIDO          "
+            case "020":
+                return "CUOTA PAGADA YA CANCELADA     "
+            case "020":
+                return "CUOTA PAGADA YA CANCELADA     "
             case _:
                 return "TRANSACCION PROCESADA OK      "
 
     def __validate_other(self, msg: str, primary: str, second: str, currency: str) -> str:
         code = self.__codErrorOri
 
-        if msg != '0200' or primary != 'F038048188E00000' or second != '0000000000000080' or currency != '604':
+        if msg != '0200' or primary != 'F038048188E08000' or second != '0000000000000080' or currency != '604':
             return '002'
 
         return code

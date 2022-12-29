@@ -2,7 +2,7 @@ import json
 import random
 import datetime
 
-from Services.validate import ValidateISO
+from utils.validate import ValidateISO
 
 
 class ISO(object):
@@ -39,10 +39,9 @@ class ISO(object):
         if pro != '310000':
             self.__codErrorOri = '002'
 
-        reference_number = str(self.__baseTrx.get('referenceProcessor'))
-        iso_reference_number = iso[208:221].strip()
-        if reference_number != iso_reference_number:
-            self.__codErrorOri = '019'
+        reference = iso[207:221]
+
+        self.__codErrorOri = self.__get_reference_and_status(reference.strip())
 
         first_part = self.__generate_new_base_iso(base_iso)
         second_iso = self.__generate_second_part_iso(iso)
@@ -54,18 +53,17 @@ class ISO(object):
     def __generate_second_part_iso(self, old_iso: str) -> str:
         data = self.__baseFile['response']
         consult_type = old_iso[206:207]
-        consult_num = old_iso[208:222]
-        print(len(consult_num), old_iso[208:222])
+        consult_num = old_iso[207:221]
         description = self.__valid.get_description_response(self.__codErrorOri)
         client_name = data['clientName']
-        merchant_name = self.__get_merchant_name(self.__baseFile['trx']['merchantName'])
+        merchant_name = self.__get_merchant_name(self.__baseTrx['merchantName'])
         product_code = old_iso[203:206]
-        product_description = self.__get_merchant_name(self.__baseFile['trx']['merchantName'], 20)
+        product_description = self.__get_merchant_name(self.__baseTrx['merchantName'], 20)
         document_number = self.__get_amount(random.randint(000000000000000, 999999999999999), 15)
         document_description = data['documentDescription']
-        expiration_date = datetime.datetime.fromtimestamp(self.__baseFile['trx']['expirationTime']).strftime("%d%m%Y")
+        expiration_date = datetime.datetime.fromtimestamp(self.__baseTrx['expirationTime']).strftime("%d%m%Y")
         created = datetime.datetime.now().strftime("%d%m%Y")
-        request_amount = self.__get_amount(self.__baseFile['trx']['requestAmount'])
+        request_amount = self.__get_amount(self.__baseTrx['requestAmount'])
         amount_zero = "000000000000"
         minimum_payment = self.__get_amount(int(request_amount) + int(amount_zero) + int(amount_zero))
 
@@ -113,3 +111,22 @@ class ISO(object):
             base = base + "0"
 
         return base + str(second)
+
+    def __get_reference_and_status(self, reference: str) -> str:
+        for x in self.__baseTrx:
+            if str(reference) == x.get('referenceProcessor'):
+                match x.get('transactionStatus'):
+                    case 'approvedTransaction':
+                        self.__baseTrx = x
+                        return '020'
+                    case 'declinedTransaction':
+                        self.__baseTrx = x
+                        return '003'
+                    case 'expiredTransaction':
+                        self.__baseTrx = x
+                        return '060'
+                    case _:
+                        self.__baseTrx = x
+                        return '000'
+
+        return '019'

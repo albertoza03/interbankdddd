@@ -2,7 +2,7 @@ import secrets
 
 from flask import Flask, request, jsonify, make_response
 
-from Services.generate_trx import GenerateTrx
+from utils.generate_trx import GenerateTrx
 from Services.reference_details import ISO
 
 app = Flask(__name__)
